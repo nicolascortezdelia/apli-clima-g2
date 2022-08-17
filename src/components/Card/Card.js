@@ -1,8 +1,16 @@
 import React from 'react';
 
-const Card = () => {
+const Card = ({clima}) => {
   return (
-    <div>Card</div>
+    {clima.map((item) => (
+        <div className="card container" >
+        <p>{item.name}</p>
+        <div className="card-body">
+            <h5 className="card-title">Card title</h5>
+        </div>
+        </div>
+    ))}
+    
   );
 };
 
