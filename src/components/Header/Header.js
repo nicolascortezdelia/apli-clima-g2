@@ -1,8 +1,34 @@
+import classNames from 'classnames';
 import React from 'react';
+import { useThemeContext, useThemeToggleContext } from '../../providers/ThemeProviders';
 
 const Header = () => {
+  const setTheme = useThemeToggleContext();
+  const theme = useThemeContext();
+
+  const handleChange = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+
+  console.log(theme);
   return (
-    <h1 className='text-center my-3'>Clima por ciudades</h1>
+    <nav className={classNames('navbar navbar-light', {
+      'bg-light': theme === 'light',
+      'bg-dark text-white': theme === 'dark',
+    })}>
+            <div className="container container-fluid">
+            <span className="navbar-brand my-3 h1">Clima por ciudades</span>
+            <div className="justify-content-end">
+                <div className="form-check form-switch">
+                    <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={handleChange}/>
+                </div>
+            </div>
+            </div>
+      </nav>
   );
 };
 

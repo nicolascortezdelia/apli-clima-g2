@@ -3,14 +3,6 @@ import { createContext, useContext, useState } from 'react';
 const themeContext = createContext();
 const themeToggleContext = createContext();
 
-export const useThemeContext = () => {
-  return useContext(themeContext);
-};
-
-export const useThemeToggleContext = () => {
-  return useContext(themeToggleContext);
-};
-
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
@@ -21,4 +13,12 @@ export const ThemeProvider = ({ children }) => {
         </themeToggleContext.Provider>
     </themeContext.Provider>
   );
+};
+
+export const useThemeContext = () => {
+  return useContext(themeContext);
+};
+
+export const useThemeToggleContext = () => {
+  return useContext(themeToggleContext);
 };

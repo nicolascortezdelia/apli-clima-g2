@@ -1,8 +1,13 @@
 import React from 'react';
+import './style.css';
 
 const Loading = () => {
   return (
-    <div>Loading</div>
+    <div className="loader">
+        <span className="hour"></span>
+        <span className="min"></span>
+        <span className="circel"></span>
+    </div>
   );
 };
 
