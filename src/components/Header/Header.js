@@ -21,7 +21,7 @@ const Header = () => {
       'bg-dark text-white': theme === 'dark',
     })}>
             <div className="container container-fluid">
-            <span className="navbar-brand my-3 h1">Clima por ciudades</span>
+            <span className="my-3 h1">Clima por ciudades</span>
             <div className="justify-content-end">
                 <div className="form-check form-switch">
                     <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={handleChange}/>

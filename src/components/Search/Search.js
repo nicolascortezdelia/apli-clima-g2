@@ -12,7 +12,7 @@ const Search = () => {
         'bg-dark text-white': theme === 'dark',
       })}>
         <div className="card-body">
-        <select className="form-select mt-xl-3" aria-label="Default select example">
+        <select className="form-select my-3" aria-label="Default select example">
             <option selected>Busca tu ciudad</option>
             <option value="1">One</option>
             <option value="2">Two</option>
