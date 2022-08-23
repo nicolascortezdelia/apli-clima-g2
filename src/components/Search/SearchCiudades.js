@@ -3,7 +3,6 @@ import React from 'react';
 const SearchCiudades = ({ ciudades, SetElegida }) => {
   return (
     <div className="form-group col-md-4">
-      <label htmlFor="inputState">Ciudad</label>
       <select id="ciudad"
               className="form-control"
               onChange={(e) => SetElegida(e.target.value)}>
