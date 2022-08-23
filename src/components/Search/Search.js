@@ -11,13 +11,10 @@ const Search = () => {
     const filtrarCiudades = async () => {
       const urlCiudadActual = 'http://api.weatherapi.com/v1/search.json?key=6be8c28794924ed8a2a184922222905&q=tuc';
       const resultCiudadActual = await axios.get(urlCiudadActual);
-      console.log(resultCiudadActual.data);
       setCiudades(resultCiudadActual.data);
     };
     filtrarCiudades();
   }, []);
-  console.log(ciudades);
-  console.log(elegida);
 
   const theme = useThemeContext();
   return (
