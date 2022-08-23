@@ -1,26 +1,32 @@
-import React from 'react';
-import classNames from 'classnames';
-import { useThemeContext } from '../../providers/ThemeProviders';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import SearchCiudades from './SearchCiudades';
 
 const Search = () => {
-  const theme = useThemeContext();
+  const [ciudades, setCiudades] = useState([]);
+  const [elegida, SetElegida] = useState([]);
+  useEffect(() => {
+    const filtrarCiudades = async () => {
+      const urlCiudadActual = 'http://api.weatherapi.com/v1/search.json?key=6be8c28794924ed8a2a184922222905&q=tuc';
+      const resultCiudadActual = await axios.get(urlCiudadActual);
+      // setLocation(resultLocation.location);
+      console.log(resultCiudadActual.data);
+      setCiudades(resultCiudadActual.data);
+    };
+    filtrarCiudades();
+  }, []);
+  console.log(ciudades);
+  console.log(elegida);
 
   return (
-    <div className="card justify-content-center mt-3">
-      <div className={classNames('card', {
-        'bg-light': theme === 'light',
-        'bg-dark text-white': theme === 'dark',
-      })}>
-        <div className="card-body">
-        <select className="form-select my-3" aria-label="Default select example">
-            <option selected>Busca tu ciudad</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-        </div>
-        </div>
-    </div>
+    <>
+      <div><h3>Busqueda Por Ciudad</h3></div>
+      <ul>
+        <SearchCiudades ciudades={ciudades} SetElegida={(SetElegida)}/>
+      </ul>
+      <h3>Ciudad Elegida: {elegida}</h3>
+
+    </>
   );
 };
 
